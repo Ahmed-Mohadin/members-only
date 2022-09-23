@@ -13,8 +13,8 @@ const User = require('./models/user');
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
-var YOUR_MONGO_UR = 'YOUR_MONGO_UR_HERE';
-var mongoDB = process.env.MONGO_UR || YOUR_MONGO_UR;
+var YOUR_MONGO_URI = 'YOUR_MONGO_URI_HERE';
+var mongoDB = process.env.MONGO_URI || YOUR_MONGO_URI;
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
