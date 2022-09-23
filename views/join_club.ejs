@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+      <h1><%= title %></h1>
+      <form action="" method="post">
+        <div class="secret-code">
+          <label for="secretCode">Enter the secret code to join the club</label>
+          <br />
+          <input
+            type="text"
+            name="secretCode"
+            id="secretCode"
+            placeholder="******"
+            value="<%= locals.secretCode === undefined ? '' : secretCode %>"
+          />
+          <% if(locals.errors) { %> <% errors.forEach((err) => { %> <%
+          if(err.param === 'secretCode') {%>
+          <p class="error"><%= err.msg %></p>
+          <% } %> <% }) %> <% } %>
+        </div>
+        <button type="submit" class="btn btn-submit">Submit</button>
+      </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+      <h1><%= title %></h1>
+      <form action="" method="post">
+        <div class="username">
+          <label for="username">Username </label>
+          <br />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value="<%= locals.username === undefined ? '' : username %>"
+          />
+          <% if(locals.errors) { %> <% errors.forEach((err) => { %> <%
+          if(err.param === 'username') {%>
+          <p class="error"><%= err.msg %></p>
+          <% } %> <% }) %> <% } %>
+        </div>
+        <div class="password">
+          <label for="password">Passoword </label>
+          <br />
+          <input type="password" name="password" id="password" />
+          <% if(locals.errors) { %> <% errors.forEach((err) => { %> <%
+          if(err.param === 'password') {%>
+          <p class="error"><%= err.msg %></p>
+          <% } %> <% }) %> <% } %>
+        </div>
+        <div class="confirmPassword">
+          <label for="confirmPassword">Confirm Password </label>
+          <br />
+          <input type="password" name="confirmPassword" id="confirmPassword" />
+          <% if(locals.errors) { %> <% errors.forEach((err) => { %> <%
+          if(err.param === 'confirmPassword') {%>
+          <p class="error"><%= err.msg %></p>
+          <% } %> <% }) %> <% } %>
+        </div>
+        <button type="submit" class="btn btn-submit">Submit</button>
+      </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<header>
+  <nav class="navbar">
+    <a href="/members-only" class="navbar-brand">
+      Members<span class="only">Only</span>
+    </a>
+    <ul class="navbar-nav">
+      <% if(!locals.user) {%>
+      <li class="nav-item">
+        <a href="/members-only/sign-up" class="nav-link">
+          <button type="button" class="btn btn-sign-up">Sign Up</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/members-only/sign-in" class="nav-link">
+          <button type="button" class="btn btn-sign-in">Sign In</button>
+        </a>
+      </li>
+      <% } else {%>
+      <li class="nav-item">
+        <a href="/members-only/join-club" class="nav-link">
+          <button type="button" class="btn btn-join-club">Join Club</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/members-only/sign-out" class="nav-link">
+          <button type="button" class="btn btn-sign-out">Sign Out</button>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

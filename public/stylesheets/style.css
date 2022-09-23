@@ -1,8 +1,218 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* core */
+:root{
+    --bgColor1: #FFFFFF;
+    --bgColor2: #F8F9FA;
+  
+    --txtColor1: #374151;
+    --txtColor2: #FFFFFF;
+  
+    --accentColor1: #DEE2E6;
+    --accentColor2: #0D6EFD;
+    --accentColor3: #0B5ED7;
+  
+    --onError: #F40612;
+  
+    --shadow: rgba(0, 0, 0, 0.2) 0.1rem 0.1rem 0.1rem;
+  
+    --defaultRadius: 0.3rem;
+    --defaultBorder: solid 0.1rem var(--accentColor1);
 }
 
-a {
-  color: #00B7FF;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: sans-serif;
+    min-height: 100%;
+    position: relative;
+}
+body{
+    background-color: var(--bgColor1);
+    color: var(--txtColor1);
+    margin-bottom: 100px;
+}
+
+/* main */
+a{
+    text-decoration: none;
+    color: var(--accentColor2);
+    font-weight: bold;
+}
+ul{
+    list-style-type: none;
+}
+.btn{
+    outline: none;
+    border: none;
+    background-color: var(--accentColor2);
+    color: var(--txtColor2);
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--defaultRadius);
+    font-weight: bold;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: var(--accentColor3);
+}
+
+/* nav */
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--bgColor2);
+    border-bottom: var(--defaultBorderBottom);
+}
+nav .navbar-brand{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+nav .navbar-brand > span{
+    color: var(--txtColor1);
+}
+nav .navbar-nav{
+    display: flex;
+    gap: 1rem;
+}
+
+/* main */
+main{
+    padding: 1rem;
+    margin-top: 2rem;
+}
+main h1{
+    text-align: center;
+}
+main .welcome-text h1{
+    margin-bottom: 1rem;
+}
+main .welcome-text{
+    text-align: center;
+}
+main .message-card{
+    background-color: var(--bgColor1);
+    border: var(--defaultBorder);
+    padding: 3rem 1rem;
+    margin: 1.5rem 0rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .message-card .message-text{
+    width: 100%;
+    margin-left: 2rem;
+}
+main .message-card .profile{
+    border: var(--defaultBorder);
+    border-radius: 50%;
+    padding: 2rem;
+    font-size: 3em;
+    background-color: var(--bgColor2);
+}
+main .message-card .text{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: var(--defaultBorderBottom);
+}
+main .message-card .message-info{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+main .message-card .message-info .user{
+    font-weight: bold;
+}
+main .user{
+    color: var(--accentColor2);
+}
+main .message-card{
+    position: relative;
+}
+main .message-card .btn{
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    background-color: var(--onError);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+form input[type="text"], 
+form input[type="password"],
+form textarea{
+    border: var(--defaultBorder);
+    outline: none;
+    width: 20rem;
+    height: 2rem;
+    padding: 0rem 0.4rem;
+    font-size: 1em;
+    border-radius: var(--defaultRadius);
+    margin-top: 0.5rem;
+}
+form input:focus, form textarea:focus{
+    border-bottom-color: var(--accentColor3);
+}
+form > div{
+    margin-bottom: 0.5rem;
+}
+form .error{
+    color: var(--onError);
+    font-size: 0.8em;
+    margin: 0.1rem 0rem;
+}
+form textarea{
+    resize: vertical;
+    min-height: 3.5rem;
+}
+
+
+/* footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgColor2);
+    border-top: var(--defaultBorder);
+    padding-top: 1rem;
+}
+footer a{
+    border-bottom: var(--defaultBorder);
+}
+footer a:hover{
+    color: var(--accentColor3);
+    border-bottom-color: var(--accentColor3);
+}
+
+/* media queries */
+@media(max-width: 769px){
+    nav{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    nav .navbar-brand{
+        font-size: 1.5em;
+        margin-bottom: 1rem;
+    }
+}
+@media(max-width: 426px){
+    :root{
+        font-size: 0.6em;
+    }
+    .btn{
+        font-size: 0.9em;
+    }
 }

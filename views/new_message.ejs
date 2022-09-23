@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+      <h1><%= title %></h1>
+
+      <form action="" method="post">
+        <div class="title">
+          <label for="title">Title</label>
+          <br />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value="<%= locals.message === undefined ? '' : message.title %>"
+          />
+        </div>
+        <div class="message">
+          <label for="message">Message</label>
+          <br />
+          <textarea
+            name="message"
+            id="message"
+            cols="41"
+            rows="13"
+            placeholder="Your message"
+          >
+<%= locals.message === undefined ? '' : message.text %></textarea
+          >
+        </div>
+
+        <button type="submit" class="btn btn-submit">Submit</button>
+      </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('./partials/head.ejs') %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('./partials/header.ejs') %>
+    <main>
+      <div class="welcome-text">
+        <% if(!locals.user) {%>
+        <h1><%= title %></h1>
+        <% } else {%>
+        <h1>
+          Hello there, <%= user.status %>
+          <span class="user"><%= user.username %></span>
+          :)
+        </h1>
+        <a href="/members-only/new-message">
+          <button type="button" class="btn btn-new-message">
+            Create a new message
+          </button>
+        </a>
+        <% } %>
+      </div>
+      <% messages.forEach((message) => { %>
+      <div class="message-card">
+        <div class="profile">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="message-text">
+          <% if(locals.user) {%> <% if(locals.user.status === 'admin') {%>
+          <form action="/members-only/delete/<%=message._id%>" method="post">
+            <button type="submit" class="btn">Delete Message</button>
+          </form>
+          <% } %> <% } %>
+          <h3 class="title"><%= message.title %></h3>
+          <p class="text"><%= message.text %></p>
+          <div class="message-info">
+            <p class="posted">
+              Posted by <% if(!locals.user || locals.user.status === 'outsider')
+              {%>
+              <span class="user"> Anonymous </span> <br />@ <%=message.date %>
+              <% } else {%>
+              <span class="user"> <%=message.user.username %> </span> <br />@
+              <%=message.date %> <% } %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <% }) %>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
