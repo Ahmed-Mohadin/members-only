@@ -35,8 +35,8 @@
           <p class="text"><%= message.text %></p>
           <div class="message-info">
             <p class="posted">
-              Posted by <% if(!locals.user || locals.user.status === 'outsider')
-              {%>
+              Posted by <% if(!locals.user || locals.user.status ===
+              'outsider'){%>
               <span class="user"> Anonymous </span> <br />@ <%=message.date %>
               <% } else {%>
               <span class="user"> <%=message.user.username %> </span> <br />@
